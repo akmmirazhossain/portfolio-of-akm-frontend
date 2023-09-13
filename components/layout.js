@@ -10,7 +10,7 @@ import ButtonSkills from "./atoms/ButtonSkills";
 import ScreenWidthPrinter from "./ScreenWidthPrinter";
 
 const name = "Your Name";
-export const siteTitle = "Next.js Sample Website";
+export const siteTitle = "Portfolio of AKM";
 
 export default function Layout({ children, home }) {
   //MY WORK MODAL VARS
@@ -45,16 +45,12 @@ export default function Layout({ children, home }) {
         <link rel="icon" href="/favicon.ico" />
         <meta
           name="description"
-          content="Learn how to build a personal website using Next.js"
+          content="Portfolio Site of AKM Miraz Hossain."
         />
-        <meta
-          property="og:image"
-          content={`https://og-image.vercel.app/${encodeURI(
-            siteTitle
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
-        />
+        <meta property="og:image" content="/image/og.jpg" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
+        <title>{siteTitle} </title>
       </Head>
       {/* <div className="container mx-auto w-full bg-[#F3F6F6] bg-black lg:bg-transparent lg:bg-transparent flex justify-between py-5 lg:px-0 ">
         {home ? (
@@ -88,7 +84,7 @@ export default function Layout({ children, home }) {
                   AKM Miraz Hossain
                 </p>
                 <p className="mb-4 inline-block bg-[#1D1D1D] px-5 py-1.5 rounded-lg text-[#A6A6A6] ">
-                  Frontend developer
+                  Fullstack developer
                 </p>
                 <div className="flex justify-center space-x-3">
                   <a
@@ -644,7 +640,8 @@ export default function Layout({ children, home }) {
                         <ButtonSkills title="Redis" />
                         <ButtonSkills title="Solr" />
                         <ButtonSkills title="SSO" />
-                        <ButtonSkills title="Wordpress" />
+                        <ButtonSkills title="PhotoShop" />
+                        <ButtonSkills title="Illustrator" />
                         <ButtonSkills title="Atlassian" />
                         <ButtonSkills title="New Relic" />
                         <ButtonSkills title="Slack" />
