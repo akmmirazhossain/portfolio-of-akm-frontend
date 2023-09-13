@@ -44,7 +44,17 @@ export const MyWorks = [
     languages: "React, NextJs, Tailwind",
     url: "https://cube-akmmirazhossain.vercel.app/",
     description:
-      'The frontend design of this website was taken from figma. <br /> More links: <br /> <a className="text-xs text-blue-600" href="https://sqa-akmmirazhossain.vercel.app/inspection-manager-module" target="_blank">https://sqa-akmmirazhossain.vercel.app/inspection-manager-module</a> <br /> <a className="text-xs text-blue-600" href="https://sqa-akmmirazhossain.vercel.app/community" target="_blank">https://sqa-akmmirazhossain.vercel.app/community</a> <br /> <a className="text-xs text-blue-600" href="https://sqa-akmmirazhossain.vercel.app/enterprise" target="_blank">https://sqa-akmmirazhossain.vercel.app/enterprise</a>',
+      'The frontend design of this website was taken from figma. <br /> More links: <br /> <a className="text-xs text-blue-600" href="https://cube-akmmirazhossain.vercel.app/inspection-manager-module" target="_blank">https://cube-akmmirazhossain.vercel.app/inspection-manager-module</a> <br /> <a className="text-xs text-blue-600" href="https://cube-akmmirazhossain.vercel.app/community" target="_blank">https://cube-akmmirazhossain.vercel.app/community</a> <br /> <a className="text-xs text-blue-600" href="https://cube-akmmirazhossain.vercel.app/enterprise" target="_blank">https://cube-akmmirazhossain.vercel.app/enterprise</a>',
     image: "sqa1.1.jpg",
+  },
+
+  {
+    id: 1,
+    title: "Portfolio of AKM",
+    type: "Frontend",
+    languages: "NextJs, Tailwind",
+    url: "https://portfolio-of-akm.vercel.app/",
+    description: "",
+    image: "portfolio.jpg",
   },
 ];

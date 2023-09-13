@@ -3,12 +3,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-const WorkDetails = ({ item }) => {
+const WorkDetails = ({ item, setIsOpenCld }) => {
   let { title, type, languages, url, description, image } = item;
   const [isOpen, setIsOpen] = useState(false);
 
-  const closeModal = () => {
-    setIsOpen(false);
+  const closeModalChild = () => {
+    setIsOpenCld();
   };
 
   return (
@@ -23,7 +23,7 @@ const WorkDetails = ({ item }) => {
           </div>
           <div className="relative ">
             <svg
-              onClick={closeModal}
+              onClick={closeModalChild}
               stroke="currentColor"
               fill="currentColor"
               stroke-width="0"
@@ -39,7 +39,7 @@ const WorkDetails = ({ item }) => {
           </div>
         </div>
         <div className="overflow-y-scroll max-h-[80vh] no-scrollbar">
-          <div className="grid grid-flow-col grid-rows-2 gap-2 pt-4 pb-5">
+          <div className="grid grid-flow-col gap-2 pt-4 pb-5 xs:justify-items-center md:justify-normal md:grid-rows-2 sm:grid-rows-3 grid-rows-3 ">
             <div className="flex content-start">
               <div className="flex items-center justify-center">
                 <svg
@@ -76,7 +76,7 @@ const WorkDetails = ({ item }) => {
               <div>Languages : {languages}</div>
             </div>
 
-            <div className="flex justify-end">
+            <div className="flex justify-start md:justify-end">
               <Link legacyBehavior href={url}>
                 <a
                   target="_blank"

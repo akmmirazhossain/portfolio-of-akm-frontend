@@ -1,13 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "./layout.module.css";
-import utilStyles from "../styles/utils.module.css";
-import Link from "next/link";
 import { TopNavButtonsList } from "../constants/constants";
 import TopNavBar from "./molecules/TopNavBar";
 import React from "react";
-import TechIcons from "./atoms/TechIcons";
-import ModalBasic from "./molecules/Modal";
 import { useState } from "react";
 import { MyWorks } from "../constants/constants";
 import WorkDetails from "./molecules/WorkDetails";
@@ -32,13 +27,18 @@ export default function Layout({ children, home }) {
     setSelectedItem(null);
   };
 
-  const renderItemComponent = (itemId) => {
-    return <ItemComponent itemId={itemId} />;
+  const setIsOpenCld = () => {
+    setIsOpen(false);
+    setSelectedItem(null);
   };
+
+  // const renderItemComponent = (itemId) => {
+  //   return <ItemComponent itemId={itemId} />;
+  // };
 
   return (
     <div
-      className="w-full min-h-screen bg-fixed bg-center bg-no-repeat bg-cover dark:bg-homeTwoBg-dark md:pb-16"
+      className="w-full min-h-screen bg-fixed bg-center bg-no-repeat bg-cover bg-homeTwoBg-dark md:pb-16"
       style={{ backgroundImage: "url('./bghome.jpg')" }}
     >
       <Head>
@@ -56,7 +56,7 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      {/* <div className="container mx-auto w-full bg-[#F3F6F6] dark:bg-black lg:bg-transparent lg:dark:bg-transparent flex justify-between py-5 lg:px-0 ">
+      {/* <div className="container mx-auto w-full bg-[#F3F6F6] bg-black lg:bg-transparent lg:bg-transparent flex justify-between py-5 lg:px-0 ">
         {home ? (
           <>
             <div className="w-full p-1 bg-red-500">
@@ -68,14 +68,14 @@ export default function Layout({ children, home }) {
           </>
         ) : (
           <>
-            <div className="container w-full bg-[#F3F6F6] dark:bg-black lg:bg-transparent lg:dark:bg-transparent flex justify-between py-5 lg:px-0 lg:pt-[50px]"></div>
+            <div className="container w-full bg-[#F3F6F6] bg-black lg:bg-transparent lg:bg-transparent flex justify-between py-5 lg:px-0 lg:pt-[50px]"></div>
           </>
         )}
       </div> */}
       <main className="container grid grid-cols-12 md:gap-10 justify-between lg:pt-[140px] mx-auto">
         <div className="col-span-12 lg:sticky lg:h-screen lg:col-span-4 lg:block top-44">
           <div className="">
-            <div className="text-white w-full mb-6 lg:mb-0 mx-auto pb-8 relative text-center dark:bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0 ">
+            <div className="text-white w-full  mb-6 lg:mb-0 mx-auto pb-8 relative text-center bg-[#111111] px-6 rounded-[20px] mt-[180px] md:mt-[220px] lg:mt-0 ">
               <Image
                 src="/images/_images_about_avatar.jpg"
                 alt="My Image"
@@ -84,10 +84,10 @@ export default function Layout({ children, home }) {
                 className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
               />
               <div className="pt-[100px] pb-8 ">
-                <p className="mt-6 mb-1 text-2xl font-semibold dark:text-white">
+                <p className="mt-6 mb-1 text-2xl font-semibold text-white">
                   AKM Miraz Hossain
                 </p>
-                <p className="mb-4 text-[#7B7B7B] inline-block dark:bg-[#1D1D1D] px-5 py-1.5 rounded-lg dark:text-[#A6A6A6] ">
+                <p className="mb-4 inline-block bg-[#1D1D1D] px-5 py-1.5 rounded-lg text-[#A6A6A6] ">
                   Frontend developer
                 </p>
                 <div className="flex justify-center space-x-3">
@@ -95,7 +95,7 @@ export default function Layout({ children, home }) {
                     href="https://linkedin.com/in/akmmirazh
 "
                     target="_blank"
-                    class="dark:bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
+                    class="bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
                   >
                     <span>
                       <svg
@@ -115,7 +115,7 @@ export default function Layout({ children, home }) {
                   <a
                     href="https://github.com/akmmirazhossain"
                     target="_blank"
-                    class="dark:bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
+                    class="bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
                   >
                     <span>
                       <svg
@@ -134,7 +134,7 @@ export default function Layout({ children, home }) {
                   <a
                     href="https://www.facebook.com"
                     target="_blank"
-                    class="dark:bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
+                    class="bg-[#1D1D1D] hover:bg-[#262626] p-3 transition duration-300 text-white font-semibold rounded-md"
                   >
                     <span>
                       <svg
@@ -149,9 +149,9 @@ export default function Layout({ children, home }) {
                   </a>
                 </div>
               </div>
-              <div className="p-7 rounded-2xl mt-1 bg-[#F3F6F6] dark:bg-[#1D1D1D]">
-                <div className="flex py-2.5 border-b border-[#E3E3E3] dark:border-[#3D3A3A]">
-                  <span className="flex items-center justify-center px-3 py-2 bg-white rounded-md shadow-md h-9 w-9 dark:bg-black">
+              <div className="p-7 rounded-2xl mt-1  bg-[#1D1D1D]">
+                <div className="flex py-2.5 border-b border-[#3D3A3A]">
+                  <span className="flex items-center justify-center px-3 py-2 bg-black rounded-md shadow-md h-9 w-9">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="1em"
@@ -165,10 +165,8 @@ export default function Layout({ children, home }) {
                     </svg>
                   </span>
                   <div className="text-left ml-2.5">
-                    <p className="text-xs text-[#44566C] dark:text-[#A6A6A6]">
-                      Phone
-                    </p>
-                    <p className="leading-3 break-all dark:text-white">
+                    <p className="text-xs text-[#A6A6A6]">Phone</p>
+                    <p className="leading-3 text-white break-all">
                       <a
                         class="hover:text-[#FA5252] text-white duration-300 transition text-sm"
                         href="tel:+8801673692997"
@@ -179,8 +177,8 @@ export default function Layout({ children, home }) {
                   </div>
                 </div>
 
-                <div className="flex py-2.5 border-b border-[#E3E3E3] dark:border-[#3D3A3A]">
-                  <span className="flex items-center justify-center px-3 py-2 bg-white rounded-md shadow-md h-9 w-9 dark:bg-black">
+                <div className="flex py-2.5 border-b border-[#3D3A3A]">
+                  <span className="flex items-center justify-center px-3 py-2 bg-black rounded-md shadow-md h-9 w-9">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="1em"
@@ -194,10 +192,8 @@ export default function Layout({ children, home }) {
                     </svg>
                   </span>
                   <div className="text-left ml-2.5">
-                    <p className="text-xs text-[#44566C] dark:text-[#A6A6A6]">
-                      Email
-                    </p>
-                    <p className="leading-3 break-all dark:text-white">
+                    <p className="text-xs text-[#A6A6A6]">Email</p>
+                    <p className="leading-3 text-white break-all">
                       <a
                         class="hover:text-[#FA5252] text-white duration-300 transition text-xs"
                         href="mailto:akmmirazhossain@gmail.com"
@@ -209,7 +205,7 @@ export default function Layout({ children, home }) {
                 </div>
 
                 <div className="flex py-2.5 ">
-                  <span className="flex items-center justify-center px-3 py-2 bg-white rounded-md shadow-md h-9 w-9 dark:bg-black">
+                  <span className="flex items-center justify-center px-3 py-2 bg-black rounded-md shadow-md h-9 w-9">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       height="1em"
@@ -222,10 +218,8 @@ export default function Layout({ children, home }) {
                     </svg>
                   </span>
                   <div className="text-left ml-2.5">
-                    <p className="text-xs text-[#44566C] dark:text-[#A6A6A6]">
-                      Location
-                    </p>
-                    <p className="leading-3 break-all dark:text-white">
+                    <p className="text-xs text-[#A6A6A6]">Location</p>
+                    <p className="leading-3 text-white break-all">
                       <a
                         class="hover:text-[#FA5252] text-white duration-300 transition text-sm"
                         href="tel:+8801673692997"
@@ -239,7 +233,7 @@ export default function Layout({ children, home }) {
 
               <a
                 className="inline-flex  items-center mx-auto bg-gradient-to-r from-[#FA5252] to-[#DD2476] duration-200 transition ease-linear text-md hover:from-[#DD2476] hover:to-[#FA5252] px-7 py-2 text-white rounded-[35px] mt-6"
-                href="AKM_Miraz_CV.pdf"
+                href="Files/AKM_Miraz_CV.pdf"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -258,7 +252,7 @@ export default function Layout({ children, home }) {
         </div>
 
         <div className="col-span-12 lg:col-span-8">
-          <header className="lg:w-[426px] h-[144px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-white dark:bg-[#111111]">
+          <header className="lg:w-[426px] h-[144px] hidden lg:block p-[30px] ml-auto mb-10 rounded-[16px] bg-[#111111]">
             <nav class="hidden lg:block ">
               <ul className="flex text-xs justify-evenly">
                 {TopNavButtonsList.map((item) => (
@@ -267,7 +261,7 @@ export default function Layout({ children, home }) {
               </ul>
             </nav>
           </header>
-          <div className="lg:rounded-2xl bg-white dark:bg-[#111111]">
+          <div className="rounded-2xl bg-[#111111]">
             <div data-aos="fade" className="aos-init aos-animate">
               <section
                 id="about"
@@ -309,7 +303,7 @@ export default function Layout({ children, home }) {
                       <h3 className="text-xl font-semibold text-white">
                         Frontend
                       </h3>
-                      <p className=" leading-8 text-gray-lite dark:text-[#A6A6A6]">
+                      <p className=" leading-8 text-gray-lite text-[#A6A6A6]">
                         I have 2 years exrience in the frontend developemnt. I
                         expertise lies in:
                       </p>
@@ -338,7 +332,7 @@ export default function Layout({ children, home }) {
                       <h3 className="text-xl font-semibold text-white">
                         Backend & DB
                       </h3>
-                      <p className=" leading-8 text-gray-lite dark:text-[#A6A6A6]">
+                      <p className=" leading-8 text-gray-lite text-[#A6A6A6]">
                         Proficient in PHP & Node for crafting APIs, backend
                         systems, web apps, and various other software solutions.
                       </p>
@@ -363,7 +357,7 @@ export default function Layout({ children, home }) {
                       <h3 className="text-xl font-semibold text-white">
                         DevOps
                       </h3>
-                      <p className=" leading-8 text-gray-lite dark:text-[#A6A6A6]">
+                      <p className=" leading-8 text-gray-lite text-[#A6A6A6]">
                         Proficiency in Linux, including server hosting with
                         Apache and Nginx.
                       </p>
@@ -384,7 +378,7 @@ export default function Layout({ children, home }) {
                     />
                     <div className="space-y-2 break-all">
                       <h3 className="text-xl font-semibold text-white">CMS</h3>
-                      <p className=" leading-8 text-gray-lite dark:text-[#A6A6A6]">
+                      <p className=" leading-8 text-gray-lite text-[#A6A6A6]">
                         Experienced in website creation, plugin/theme
                         development, headless API development.
                       </p>
@@ -422,10 +416,10 @@ export default function Layout({ children, home }) {
                           className="transition-transform transform scale-100 hover:scale-105"
                         />
                       </div>
-                      <span className="pt-5 text-[14px] font-normal text-gray-lite block dark:text-[#A6A6A6]">
-                        {item.type}
+                      <span className="pt-5 text-[14px] font-normal text-gray-lite block text-[#A6A6A6]">
+                        {item.type} &bull; {item.languages}
                       </span>
-                      <div className="font-medium cursor-pointer text-xl duration-300 transition hover:text-[#FA5252] dark:hover:text-[#FA5252] dark:text-white mt-2">
+                      <div className="font-medium cursor-pointer text-xl duration-300 transition hover:text-[#FA5252] text-white mt-2">
                         {item.title}
                       </div>
                     </div>
@@ -443,6 +437,7 @@ export default function Layout({ children, home }) {
                         isOpen={isOpen}
                         closeModal={closeModal}
                         item={selectedItem}
+                        setIsOpenCld={setIsOpenCld}
                       />
                     </div>
                   )}
@@ -477,7 +472,7 @@ export default function Layout({ children, home }) {
                           <path d="M20 7h-4V5l-2-2h-4L8 5v2H4c-1.1 0-2 .9-2 2v5c0 .75.4 1.38 1 1.73V19c0 1.11.89 2 2 2h14c1.11 0 2-.89 2-2v-3.28c.59-.35 1-.99 1-1.72V9c0-1.1-.9-2-2-2zM10 5h4v2h-4V5zM4 9h16v5h-5v-3H9v3H4V9zm9 6h-2v-2h2v2zm6 4H5v-3h4v1h6v-1h4v3z" />
                         </svg>
                       </div>
-                      <h4 class="text-xl  dark:text-white font-semibold ">
+                      <h4 class="text-xl  text-white font-semibold ">
                         Experience
                       </h4>
                     </div>
@@ -489,9 +484,7 @@ export default function Layout({ children, home }) {
                       <span className="text-xs text-[#b7b7b7]">
                         2023 - Present
                       </span>
-                      <h3 className="text-xl dark:text-white">
-                        Frontend Developer
-                      </h3>
+                      <h3 className="text-xl text-white">Frontend Developer</h3>
                       <p className="text-[#b7b7b7] text-sm">
                         Line Reflection Ltd.
                       </p>
@@ -504,7 +497,7 @@ export default function Layout({ children, home }) {
                       <span className="text-xs text-[#b7b7b7]">
                         2021 - 2023
                       </span>
-                      <h3 className="text-xl dark:text-white">
+                      <h3 className="text-xl text-white">
                         Customer Success Engineer
                       </h3>
                       <p className="text-[#b7b7b7] text-sm">
@@ -528,7 +521,7 @@ export default function Layout({ children, home }) {
                           <path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"></path>
                         </svg>
                       </div>
-                      <h4 class="text-xl  dark:text-white font-semibold ">
+                      <h4 class="text-xl  text-white font-semibold ">
                         Education
                       </h4>
                     </div>
@@ -540,7 +533,7 @@ export default function Layout({ children, home }) {
                       <span className="text-xs text-[#b7b7b7]">
                         2016 - 2019
                       </span>
-                      <h3 className="text-xl dark:text-white">
+                      <h3 className="text-xl text-white">
                         BSc Computer Science & Eng.
                       </h3>
                       <p className="text-[#b7b7b7] text-sm">
@@ -555,7 +548,7 @@ export default function Layout({ children, home }) {
                       <span className="text-xs text-[#b7b7b7]">
                         2007 - 2012
                       </span>
-                      <h3 className="text-xl dark:text-white">O & A level</h3>
+                      <h3 className="text-xl text-white">O & A level</h3>
                       <p className="text-[#b7b7b7] text-sm">
                         Pearson Edexcel, International GCSE
                       </p>
@@ -567,7 +560,7 @@ export default function Layout({ children, home }) {
               </section>
 
               <section>
-                <div className="container bg-color-810 dark:bg-[#0D0D0D] py-12 px-4 sm:px-5 md:px-10 lg:px-20">
+                <div className="container bg-color-810 bg-[#0D0D0D] py-12 px-4 sm:px-5 md:px-10 lg:px-20">
                   <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
                     <div className="col-span-1">
                       <h4 className="mb-6 text-xl font-semibold text-white">
@@ -575,10 +568,10 @@ export default function Layout({ children, home }) {
                       </h4>
                       <div className=" mb-7">
                         <div className="flex justify-between py-1">
-                          <span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">
+                          <span className=" text-base text-gray-lite font-semibold text-[#A6A6A6]">
                             Creativity
                           </span>
-                          <span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">
+                          <span className=" text-base font-semibold text-gray-lite pr-5 text-[#A6A6A6]">
                             95%
                           </span>
                         </div>
@@ -590,10 +583,10 @@ export default function Layout({ children, home }) {
 
                       <div className=" mb-7">
                         <div className="flex justify-between py-1">
-                          <span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">
+                          <span className=" text-base text-gray-lite font-semibold text-[#A6A6A6]">
                             Communication
                           </span>
-                          <span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">
+                          <span className=" text-base font-semibold text-gray-lite pr-5 text-[#A6A6A6]">
                             92%
                           </span>
                         </div>
@@ -605,10 +598,10 @@ export default function Layout({ children, home }) {
 
                       <div className=" mb-7">
                         <div className="flex justify-between py-1">
-                          <span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">
+                          <span className=" text-base text-gray-lite font-semibold text-[#A6A6A6]">
                             Problem Solving
                           </span>
-                          <span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">
+                          <span className=" text-base font-semibold text-gray-lite pr-5 text-[#A6A6A6]">
                             93%
                           </span>
                         </div>
@@ -620,10 +613,10 @@ export default function Layout({ children, home }) {
 
                       <div className=" mb-7">
                         <div className="flex justify-between py-1">
-                          <span className=" text-base text-gray-lite font-semibold dark:text-[#A6A6A6]">
+                          <span className=" text-base text-gray-lite font-semibold text-[#A6A6A6]">
                             Leadership
                           </span>
-                          <span className=" text-base font-semibold text-gray-lite pr-5 dark:text-[#A6A6A6]">
+                          <span className=" text-base font-semibold text-gray-lite pr-5 text-[#A6A6A6]">
                             87%
                           </span>
                         </div>
@@ -673,13 +666,13 @@ export default function Layout({ children, home }) {
                   <div class="xs:w-12 md:w-40 ml-4 bg-gradient-to-r h-px rounded-lg from-[#FA5252] to-[#DD2476]"></div>
                 </div>
 
-                <div className="  dark:border-[#212425] dark:border-2  md:p-[48px]  p-4   bg-color-810 rounded-xl dark:bg-[#111111] mb-[30px] md:mb-[60px]">
+                <div className="  border-[#212425] border-2  md:p-[48px]  p-4   bg-color-810 rounded-xl bg-[#111111] mb-[30px] md:mb-[60px]">
                   <h3 className="text-4xl text-white">
-                    <span className="text-gray-lite dark:text-[#A6A6A6] text-sm sm:text-base md:text-lg lg:text-2xl">
+                    <span className="text-gray-lite text-[#A6A6A6] text-sm sm:text-base md:text-lg lg:text-2xl">
                       Feel free to reach out to me anytime,
                     </span>
                     <br />
-                    <span className="text-sm font-semibold dark:text-white sm:text-base md:text-lg lg:text-2xl">
+                    <span className="text-sm font-semibold text-white sm:text-base md:text-lg lg:text-2xl">
                       I'm always open.
                     </span>
                   </h3>
@@ -688,13 +681,13 @@ export default function Layout({ children, home }) {
                       <input
                         type="text"
                         name="name"
-                        className="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer"
+                        className="block autofill:bg-transparent py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] appearance-none text-white border-[#333333] focus:outline-none focus:ring-0 focus:border-[#FF6464] peer"
                         placeholder=" "
                         required
                       />
                       <label
                         htmlFor="name"
-                        className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+                        className="peer-focus:font-medium absolute text-sm text-gray-500 text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FF6464]  peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
                       >
                         Name *
                       </label>
@@ -703,14 +696,14 @@ export default function Layout({ children, home }) {
                       <input
                         type="email"
                         name="user_email"
-                        className="block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#5185D4] peer"
+                        className="block autofill:text-red-900 needed py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] appearance-none text-white border-[#333333] focus:border-[#FF6464] focus:outline-none focus:ring-0  peer"
                         placeholder=" "
                         id="user_email"
                         required
                       />
                       <label
                         htmlFor="user_email"
-                        className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#5185D4] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+                        className="peer-focus:font-medium absolute text-sm text-gray-500 text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
                       >
                         Email *
                       </label>
@@ -719,14 +712,14 @@ export default function Layout({ children, home }) {
                       <input
                         type="text"
                         name="message"
-                        className="block autofill:bg-yellow-200 py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] border-[#B5B5B5] appearance-none dark:text-white dark:border-[#333333] dark:focus:border-[#FF6464] focus:outline-none focus:ring-0 focus:border-[#CA56F2] peer"
+                        className="block autofill:bg-yellow-200 py-2.5 px-0 w-full text-sm text-gray-lite bg-transparent border-0 border-b-[2px] appearance-none text-white border-[#333333] focus:border-[#FF6464] focus:outline-none focus:ring-0  peer"
                         placeholder=" "
                         id="message"
                         required
                       />
                       <label
                         htmlFor="message"
-                        className="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#CA56F2] peer-focus:dark:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
+                        className="peer-focus:font-medium absolute text-sm text-gray-500 text-color-910 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0  peer-focus:text-[#FF6464] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-8"
                       >
                         Message *
                       </label>
@@ -734,7 +727,7 @@ export default function Layout({ children, home }) {
                     <div className="transition-all duration-300 ease-in-out inline-block hover:bg-gradient-to-r from-[#FA5252] to-[#DD2476] rounded-lg mt-3">
                       <input
                         type="submit"
-                        className=" transition ease-in duration-200 font-semibold cursor-pointer border-color-910 hover:border-transparent px-6 py-2 rounded-lg border-[2px] hover:text-white dark:text-white "
+                        className=" transition ease-in duration-200 font-semibold cursor-pointer border-color-910 hover:border-transparent px-6 py-2 rounded-lg border-[2px] hover:text-white text-white "
                         defaultValue="Submit"
                       />
                     </div>
@@ -744,14 +737,8 @@ export default function Layout({ children, home }) {
             </div>
           </div>
         </div>
-
-        {/* {children} */}
       </main>
-      {/* {!home && (
-        <div className={styles.backToHome}>
-          <Link href="/">← Back to home</Link>
-        </div>
-      )} */}
+
       <ScreenWidthPrinter />
     </div>
   );
