@@ -636,7 +636,6 @@ export default function Layout({ children, home }) {
                         <ButtonSkills title="CI/CD" />
                         <ButtonSkills title="CLIs" />
                         <ButtonSkills title="Nginx" />
-                        <ButtonSkills title="Docker" />
                         <ButtonSkills title="CDN" />
                         <ButtonSkills title="Composer" />
                         <ButtonSkills title="PHPMyAdmin" />
