@@ -47,7 +47,7 @@ export default function Layout({ children, home }) {
           name="description"
           content="Portfolio Site of AKM Miraz Hossain."
         />
-        <meta property="og:image" content="/image/og.jpg" />
+        <meta property="og:image" content="/images/og.png" />
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
         <title>{siteTitle} </title>
