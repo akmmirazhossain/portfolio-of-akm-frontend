@@ -84,7 +84,7 @@ export default function Layout({ children, home }) {
                   AKM Miraz Hossain
                 </p>
                 <p className="mb-4 inline-block bg-[#1D1D1D] px-5 py-1.5 rounded-lg text-[#A6A6A6] ">
-                  Fullstack developer
+                  Frontend developer
                 </p>
                 <div className="flex justify-center space-x-3">
                   <a
