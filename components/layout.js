@@ -77,14 +77,14 @@ export default function Layout({ children, home }) {
                 alt="My Image"
                 width={500}
                 height={300}
-                className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[240px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
+                className="w-[240px] absolute left-[50%] transform -translate-x-[50%] h-[267px] drop-shadow-xl mx-auto rounded-[20px] -mt-[140px]"
               />
               <div className="pt-[100px] pb-8 ">
-                <p className="mt-6 mb-1 text-2xl font-semibold text-white">
+                <p className="mt-12 mb-1 text-2xl font-semibold text-white">
                   AKM Miraz Hossain
                 </p>
                 <p className="mb-4 inline-block bg-[#1D1D1D] px-5 py-1.5 rounded-lg text-[#A6A6A6] ">
-                  Frontend developer
+                  Sr. Software Engineer
                 </p>
                 <div className="flex justify-center space-x-3">
                   <a
@@ -272,10 +272,12 @@ export default function Layout({ children, home }) {
                     <div className="col-span-12 space-y-2.5">
                       <div className="lg:mr-16">
                         <p className="leading-7 text-gray-lite text-[#7B7B7B]">
-                          Hi, I'm AKM Miraz, a passionate frontend developer
-                          with a love for crafting exceptional web experiences.
-                          With 2 years of experience in the field, I'm dedicated
-                          to turning ideas into stunning websites!
+                          Hi, I'm AKM Miraz, a software engineer focused on
+                          creative solutions using JavaScript, NextJs, NodeJs,
+                          PHP/MySql and more. Committed to delivering
+                          high-quality software, I stay updated with industry
+                          trends to bring innovation to every project. Let's
+                          build something amazing together!
                         </p>
                       </div>
                     </div>
@@ -300,7 +302,7 @@ export default function Layout({ children, home }) {
                         Frontend
                       </h3>
                       <p className=" leading-8 text-gray-lite text-[#A6A6A6]">
-                        I have 2 years exrience in the frontend developemnt. I
+                        I have 3 years exrience in the frontend developemnt. I
                         expertise lies in:
                       </p>
                       <div className="flex flex-wrap justify-start gap-1">
@@ -334,8 +336,9 @@ export default function Layout({ children, home }) {
                       </p>
 
                       <div className="flex flex-wrap justify-start gap-1">
-                        <ButtonSkills title="PHP" />
                         <ButtonSkills title="NodeJs" />
+                        <ButtonSkills title="PHP" />
+                        <ButtonSkills title="LaraVel" />
                         <ButtonSkills title="MySql" />
                       </div>
                     </div>
@@ -404,7 +407,7 @@ export default function Layout({ children, home }) {
                       <div className="overflow-hidden rounded-lg ">
                         <Image
                           src={`/images/demoss/${item.image}`}
-                          alt="wadwa"
+                          alt=""
                           width={0}
                           height={0}
                           sizes="100vw"
@@ -480,7 +483,9 @@ export default function Layout({ children, home }) {
                       <span className="text-xs text-[#b7b7b7]">
                         2023 - Present
                       </span>
-                      <h3 className="text-xl text-white">Frontend Developer</h3>
+                      <h3 className="text-xl text-white">
+                        Sr. Software Engineer
+                      </h3>
                       <p className="text-[#b7b7b7] text-sm">
                         Line Reflection Ltd.
                       </p>
