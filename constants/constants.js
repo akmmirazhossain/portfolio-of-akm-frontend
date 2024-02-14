@@ -39,6 +39,16 @@ export const TopNavButtonsList = [
 export const MyWorks = [
   {
     id: 1,
+    title: "Mazeda Networks",
+    type: "Frontend",
+    languages: "NextJs, Tailwind, Sass, Midjourney",
+    url: "https://mazeda-web.netlify.app/",
+    description:
+      "This is desined as the official website of Mazeda Networks Ltd.",
+    image: "mazeda-net.png",
+  },
+  {
+    id: 1,
     title: "Cube Solutions",
     type: "Frontend",
     languages: "React, NextJs, Tailwind",
